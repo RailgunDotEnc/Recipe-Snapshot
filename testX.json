@@ -1,0 +1,292 @@
+{
+  "intents": [
+    {
+      "tag": "bread",
+      "patterns": ["bread", "found bread", "bread detected"],
+      "responses": [
+        {
+          "recipe_name": "Grilled Cheese Sandwich",
+          "ingredients": ["Bread", "cheese", "butter"],
+          "condiments": [],
+          "link": "https://example.com/grilled-cheese-sandwich"
+        },
+        {
+          "recipe_name": "Peanut Butter and Jelly Sandwich",
+          "ingredients": ["Bread", "peanut butter", "jelly"],
+          "condiments": [],
+          "link": "https://example.com/peanut-butter-jelly-sandwich"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "milk",
+      "patterns": ["milk", "found milk", "milk detected"],
+      "responses": [
+        {
+          "recipe_name": "Creamy Milkshake",
+          "ingredients": ["Milk", "ice cream", "sugar", "vanilla extract"],
+          "condiments": [],
+          "link": "https://example.com/creamy-milkshake"
+        },
+        {
+          "recipe_name": "Hot Chocolate",
+          "ingredients": ["Milk", "cocoa powder", "sugar", "marshmallows"],
+          "condiments": [],
+          "link": "https://example.com/hot-chocolate"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "eggs",
+      "patterns": ["eggs", "found eggs", "eggs detected"],
+      "responses": [
+        {
+          "recipe_name": "Scrambled Eggs",
+          "ingredients": ["Eggs", "butter", "salt", "pepper"],
+          "condiments": [],
+          "link": "https://example.com/scrambled-eggs"
+        },
+        {
+          "recipe_name": "Fried Egg",
+          "ingredients": ["Egg", "butter or oil", "salt", "pepper"],
+          "condiments": [],
+          "link": "https://example.com/fried-egg"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "rice",
+      "patterns": ["rice", "found rice", "rice detected"],
+      "responses": [
+        {
+          "recipe_name": "Simple Fried Rice",
+          "ingredients": ["Rice", "mixed vegetables", "egg", "soy sauce", "oil"],
+          "condiments": [],
+          "link": "https://example.com/simple-fried-rice"
+        },
+        {
+          "recipe_name": "Rice Pilaf",
+          "ingredients": ["Rice", "onion", "garlic", "vegetable broth", "butter", "salt", "pepper"],
+          "condiments": [],
+          "link": "https://example.com/rice-pilaf"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "tortillas",
+      "patterns": ["tortillas", "found tortillas", "tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Cheese Quesadilla",
+          "ingredients": ["Tortillas", "cheese", "salsa"],
+          "condiments": [],
+          "link": "https://example.com/cheese-quesadilla"
+        },
+        {
+          "recipe_name": "Vegetable Wrap",
+          "ingredients": ["Tortillas", "lettuce", "tomatoes", "cucumber", "cheese", "dressing"],
+          "condiments": [],
+          "link": "https://example.com/vegetable-wrap"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "fried_beans",
+      "patterns": ["fried beans", "found fried beans", "fried beans detected"],
+      "responses": [
+        {
+          "recipe_name": "Bean and Cheese Burrito",
+          "ingredients": ["Tortillas", "fried beans", "cheese", "salsa"],
+          "condiments": [],
+          "link": "https://example.com/bean-cheese-burrito"
+        },
+        {
+          "recipe_name": "Beans on Toast",
+          "ingredients": ["Bread", "fried beans", "cheese", "butter"],
+          "condiments": [],
+          "link": "https://example.com/beans-on-toast"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "milk_eggs",
+      "patterns": ["milk and eggs", "found milk and eggs", "milk and eggs detected"],
+      "responses": [
+        {
+          "recipe_name": "French Toast",
+          "ingredients": ["Bread", "milk", "eggs", "sugar", "cinnamon", "butter"],
+          "condiments": [],
+          "link": "https://example.com/french-toast"
+        },
+        {
+          "recipe_name": "Pancakes",
+          "ingredients": ["Milk", "eggs", "flour", "baking powder", "sugar", "butter"],
+          "condiments": [],
+          "link": "https://example.com/pancakes"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "beans_tortillas",
+      "patterns": ["beans and tortillas", "found beans and tortillas", "beans and tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Bean and Cheese Burrito",
+          "ingredients": ["Tortillas", "fried beans", "cheese", "salsa"],
+          "condiments": [],
+          "link": "https://example.com/bean-cheese-burrito"
+        },
+        {
+          "recipe_name": "Bean Tacos",
+          "ingredients": ["Tortillas", "fried beans", "lettuce", "tomato", "cheese", "sour cream"],
+          "condiments": [],
+          "link": "https://example.com/bean-tacos"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "bread_milk_eggs",
+      "patterns": ["bread milk and eggs", "found bread milk and eggs", "bread milk and eggs detected"],
+      "responses": [
+        {
+          "recipe_name": "Bread Pudding",
+          "ingredients": ["Bread", "milk", "eggs", "sugar", "vanilla", "cinnamon", "butter"],
+          "condiments": [],
+          "link": "https://example.com/bread-pudding"
+        },
+        {
+          "recipe_name": "French Toast",
+          "ingredients": ["Bread", "milk", "eggs", "sugar", "cinnamon", "butter"],
+          "condiments": [],
+          "link": "https://example.com/french-toast"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "rice_tortillas",
+      "patterns": ["rice and tortillas", "found rice and tortillas", "rice and tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Burrito Bowl",
+          "ingredients": ["Rice", "tortillas", "beans", "vegetables", "cheese", "salsa"],
+          "condiments": [],
+          "link": "https://example.com/burrito-bowl"
+        },
+        {
+          "recipe_name": "Rice and Bean Wrap",
+          "ingredients": ["Tortillas", "rice", "fried beans", "lettuce", "tomato", "cheese"],
+          "condiments": [],
+          "link": "https://example.com/rice-bean-wrap"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "eggs_bread",
+      "patterns": ["eggs and bread", "found eggs and bread", "eggs and bread detected"],
+      "responses": [
+        {
+          "recipe_name": "Egg Sandwich",
+          "ingredients": ["Bread", "fried or scrambled egg", "cheese", "lettuce", "tomato"],
+          "condiments": [],
+          "link": "https://example.com/egg-sandwich"
+        },
+        {
+          "recipe_name": "French Toast",
+          "ingredients": ["Bread", "milk", "eggs", "sugar", "cinnamon", "butter"],
+          "condiments": [],
+          "link": "https://example.com/french-toast"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "eggs_rice",
+      "patterns": ["eggs and rice", "found eggs and rice", "eggs and rice detected"],
+      "responses": [
+        {
+          "recipe_name": "Fried Rice",
+          "ingredients": ["Rice", "mixed vegetables", "egg", "soy sauce", "oil"],
+          "condiments": [],
+          "link": "https://example.com/fried-rice"
+        },
+        {
+          "recipe_name": "Egg Fried Rice",
+          "ingredients": ["Rice", "egg", "vegetables", "soy sauce", "oil"],
+          "condiments": [],
+          "link": "https://example.com/egg-fried-rice"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "milk_rice",
+      "patterns": ["milk and rice", "found milk and rice", "milk and rice detected"],
+      "responses": [
+        {
+          "recipe_name": "Rice Pudding",
+          "ingredients": ["Rice", "milk", "sugar", "vanilla", "cinnamon", "nutmeg"],
+          "condiments": [],
+          "link": "https://example.com/rice-pudding"
+        },
+        {
+          "recipe_name": "Creamy Rice",
+          "ingredients": ["Rice", "milk", "butter", "sugar", "cinnamon"],
+          "condiments": [],
+          "link": "https://example.com/creamy-rice"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "milk_tortillas",
+      "patterns": ["milk and tortillas", "found milk and tortillas", "milk and tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Milk and Tortilla Soup",
+          "ingredients": ["Milk", "tortillas", "vegetable broth", "onion", "garlic", "tomatoes", "chiles", "cheese"],
+          "condiments": [],
+          "link": "https://example.com/milk-tortilla-soup"
+        },
+        {
+          "recipe_name": "Creamy Tortilla Enchiladas",
+          "ingredients": ["Tortillas", "milk", "cheese", "vegetables", "enchilada sauce"],
+          "condiments": [],
+          "link": "https://example.com/creamy-tortilla-enchiladas"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "eggs_tortillas",
+      "patterns": ["eggs and tortillas", "found eggs and tortillas", "eggs and tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Breakfast Burrito",
+          "ingredients": ["Tortillas", "eggs", "cheese", "salsa", "vegetables"],
+          "condiments": [],
+          "link": "https://example.com/breakfast-burrito"
+        },
+        {
+          "recipe_name": "Huevos Rancheros",
+          "ingredients": ["Tortillas", "eggs", "tomato sauce", "beans", "cheese"],
+          "condiments": [],
+          "link": "https://example.com/huevos-rancheros"
+        }
+      ],
+      "context_set": ""
+    }
+  ]
+}
+
+
+
