@@ -32,9 +32,9 @@ class App(customtkinter.CTk):
         self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
         self.sidebar_button_1 = customtkinter.CTkButton(self.sidebar_frame,text="Reset", command=self.text_event)
         self.sidebar_button_1.grid(row=1, column=0, padx=20, pady=10)
-        self.sidebar_button_2 = customtkinter.CTkButton(self.sidebar_frame,text="test", command=self.scanimage)
+        self.sidebar_button_2 = customtkinter.CTkButton(self.sidebar_frame,text="Test", command=self.scanimage)
         self.sidebar_button_2.grid(row=2, column=0, padx=20, pady=10)
-        self.sidebar_button_3 = customtkinter.CTkButton(self.sidebar_frame,text="Train", command=self.text_event)
+        self.sidebar_button_3 = customtkinter.CTkButton(self.sidebar_frame,text="Test 2", command=self.set_recipes)
         self.sidebar_button_3.grid(row=3, column=0, padx=20, pady=10)
         self.appearance_mode_label = customtkinter.CTkLabel(self.sidebar_frame, text="Appearance Mode:", anchor="w")
         self.appearance_mode_label.grid(row=5, column=0, padx=20, pady=(10, 0))
@@ -171,14 +171,44 @@ class App(customtkinter.CTk):
         #self.seg_button_1.set("Value 2")
 
 
-    def scanimage(self,img=r"C:/Users/danie/OneDrive/Desktop/UT_Dallas/Clubs/AIM/Final_Product/ingredients_imgs/test.jpg"):
+    def scanimage(self,img=r"ingredients_imgs/test.jpg"):
         button_image = customtkinter.CTkImage(Image.open(img), size=(156, 156))
         image_button = customtkinter.CTkButton(master=self.radiobutton_frame,text="",image=button_image)
         image_button.grid(row=1, column=1, columnspan=4, pady=10, padx=20, sticky="")
         t1 = threading.Thread(target=model.scanimage, args=(self,img))
         self.text_event("Scanning image")
         t1.start()
-        
+    
+    def set_recipes(self,food=[
+        ["Breakfast Burrito",["Tortillas", "eggs", "cheese", "salsa", "vegetables"],[],"https://example.com/breakfast-burrito" ]
+        ,["Huevos Rancheros",["Tortillas", "eggs", "tomato sauce", "beans", "cheese"],[],"https://example.com/huevos-rancheros"]]):
+        img_size=106
+        j=0
+        for i in range(len(food)):
+            img=customtkinter.CTkImage(Image.open(f"recipies_imgs\\{food[i][0]}.jpg"), size=(img_size, img_size))
+            food_img = customtkinter.CTkButton(master=self.scrollable_frame,text="",image=img)
+            food_img.grid(row=j, column=0, padx=20, pady=20)
+            ingredients=""
+            condiments=""
+            for k in range(len(food[i][1])):
+                ingredients=ingredients+ f"{food[i][1][k]}, "
+            for k in range(len(food[i][2])):
+                condiments=condiments+ f"{food[i][1][k]}, "
+            j=j+1
+            label = customtkinter.CTkLabel(master=self.scrollable_frame, text=f">{food[i][0]}")
+            label.grid(row=j, column=0, padx=20)
+            j=j+1
+            label1 = customtkinter.CTkLabel(master=self.scrollable_frame, text=f"Ingredients: {ingredients}")
+            label1.grid(row=j, column=0, padx=20)
+            j=j+1
+            label2 = customtkinter.CTkLabel(master=self.scrollable_frame, text=f"Condiments: {condiments}")
+            label2.grid(row=j, column=0, padx=20)
+            j=j+1
+            label3 = customtkinter.CTkLabel(master=self.scrollable_frame, text=f"Website: {food[i][3]}")
+            label3.grid(row=j, column=0, padx=20)
+            j=j+1
+            
+
     def set_ingredients(self,ingredient_list):
         img_size=106
         dict_img={"bread":customtkinter.CTkImage(Image.open(r"ingredients_imgs\bread.jpg"), size=(img_size, img_size)),
