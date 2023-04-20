@@ -11,6 +11,8 @@ import pickle
 
 make_model=True
 
+
+
 with open("testX.json") as file:
     data = json.load(file)
 
@@ -110,6 +112,7 @@ def chat():
 
         results = model.predict([bag_of_words(inp, words)])
         results_index = numpy.argmax(results)
+        print(results_index)
         tag = labels[results_index]
         # print(tag)
         

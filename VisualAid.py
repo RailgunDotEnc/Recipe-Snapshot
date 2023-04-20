@@ -5,6 +5,9 @@ import Food_Detection_Pretrained_Model as model
 import time
 import threading
 from PIL import Image, ImageTk
+import sys
+sys.path.insert(0,'Recipe_Bot/')
+import chatbot_copy
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("green")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -182,14 +185,21 @@ class App(customtkinter.CTk):
     def set_recipes(self,food=[
         ["Breakfast Burrito",["Tortillas", "eggs", "cheese", "salsa", "vegetables"],[],"https://example.com/breakfast-burrito" ]
         ,["Huevos Rancheros",["Tortillas", "eggs", "tomato sauce", "beans", "cheese"],[],"https://example.com/huevos-rancheros"]]):
+        self.text_event(f"Found {len(food)} Recipes")
         img_size=106
         j=0
+        
+        
+        
         for i in range(len(food)):
             img=customtkinter.CTkImage(Image.open(f"recipies_imgs\\{food[i][0]}.jpg"), size=(img_size, img_size))
             food_img = customtkinter.CTkButton(master=self.scrollable_frame,text="",image=img)
             food_img.grid(row=j, column=0, padx=20, pady=20)
             ingredients=""
             condiments=""
+            bot=chatbot_copy.Model()
+            bot.run()
+            bot.chat(self)
             for k in range(len(food[i][1])):
                 ingredients=ingredients+ f"{food[i][1][k]}, "
             for k in range(len(food[i][2])):
@@ -257,7 +267,7 @@ class App(customtkinter.CTk):
         self.textbox.insert("end", f">{text} \n")
         self.count=self.count+1
         time.sleep(.5)
-
+        
 
 if __name__ == "__main__":
     app = App()

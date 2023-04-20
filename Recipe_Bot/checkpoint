@@ -1,2 +1,2 @@
-model_checkpoint_path: "C:\\Users\\danie\\OneDrive\\Desktop\\UT_Dallas\\Clubs\\AIM\\Final_Product\\Recipe-Snapshot\\model.tflearn"
-all_model_checkpoint_paths: "C:\\Users\\danie\\OneDrive\\Desktop\\UT_Dallas\\Clubs\\AIM\\Final_Product\\Recipe-Snapshot\\model.tflearn"
+model_checkpoint_path: "C:\\Users\\danie\\OneDrive\\Desktop\\UT_Dallas\\Clubs\\AIM\\Final_Product\\Recipe-Snapshot\\Recipe_Bot\\model.tflearn"
+all_model_checkpoint_paths: "C:\\Users\\danie\\OneDrive\\Desktop\\UT_Dallas\\Clubs\\AIM\\Final_Product\\Recipe-Snapshot\\Recipe_Bot\\model.tflearn"
