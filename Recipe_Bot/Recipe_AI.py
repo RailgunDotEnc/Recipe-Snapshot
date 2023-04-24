@@ -10,6 +10,7 @@ import json
 import pickle
 import sys
 import os
+from itertools import chain, combinations
 sys.path.insert(0,'Recipe_Bot/')
 
 
@@ -21,7 +22,7 @@ class Model:
     def run(self,make_model=False):
         print(os.getcwd())
 
-        with open("Recipe_Bot/testX.json") as file:
+        with open("Recipe_Bot/Food.json") as file:
             self.data = json.load(file)
         
         try:
@@ -109,15 +110,35 @@ class Model:
                     bag[i] = 1
                 
         return numpy.array(bag)
+    
+    def powerset(self,iterable):
+        s=list(iterable)
+        return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
+    
+    def find_combos(self,inp):
+        all_combos=[]
+        for i, combo in enumerate(self.powerset(inp),1):
+            all_combos.append(combo)
+        return all_combos
 
 
-    def chat(self,not_self):
-        print("Start talking with the bot (type quit to stop)!")
-        not_self.text_event("Start talking with the bot (type quit to stop)!")
-        if True:
-            inp = "egg"
+    def chat(self,not_self,inp=["egg"]):
+        answer=[]   
+        combos=self.find_combos(inp)
+        
+        for i in range(len(combos)):
+            ing=""
+            for j in range(len(combos[i])):
+                if j==0:
+                    ing=combos[i][j]
+                elif j<len(inp)-1:
+                    ing=ing+" and "+combos[i][j]
+                else:
+                    ing=ing+" "+combos[i][j]
+                    
+            not_self.text_event(f"Combo: {ing}")
 
-            results = self.model.predict([self.bag_of_words(inp, self.words)])[0]
+            results = self.model.predict([self.bag_of_words(ing, self.words)])[0]
             results_index = numpy.argmax(results)
             tag = self.labels[results_index]
             # print(tag)
@@ -128,10 +149,9 @@ class Model:
                         break
                 
                 for response in responses:
-                    not_self.text_event(f"Recipe Name: {response['recipe_name']}")
-                    not_self.text_event(f"Ingredients: {', '.join(response['ingredients'])}")
-                    not_self.text_event(f"Condiments: {', '.join(response['condiments']) if response['condiments'] else 'None'}")
-                    not_self.text_event(f"Link: {response['link']}")
-
+                    answer.append([response['recipe_name'],response['ingredients'],response['condiments'],response['link']])
+                    
             else:
                 not_self.text_event("Nothing found")
+        print(answer)
+        return answer

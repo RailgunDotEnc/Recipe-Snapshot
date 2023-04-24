@@ -7,7 +7,7 @@ import threading
 from PIL import Image, ImageTk
 import sys
 sys.path.insert(0,'Recipe_Bot/')
-import chatbot_copy
+import Recipe_AI
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("green")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -46,7 +46,7 @@ class App(customtkinter.CTk):
         self.appearance_mode_optionemenu.grid(row=6, column=0, padx=20, pady=(10, 10))
         self.scaling_label = customtkinter.CTkLabel(self.sidebar_frame, text="UI Scaling:", anchor="w")
         self.scaling_label.grid(row=7, column=0, padx=20, pady=(10, 0))
-        self.scaling_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["80%", "90%", "100%", "110%", "120%"],
+        self.scaling_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["80%", "90%", "100%", "110%", "120%","130%", "140%"],
                                                                command=self.change_scaling_event)
         self.scaling_optionemenu.grid(row=8, column=0, padx=20, pady=(10, 20))
 
@@ -174,7 +174,7 @@ class App(customtkinter.CTk):
         #self.seg_button_1.set("Value 2")
 
 
-    def scanimage(self,img=r"ingredients_imgs/test.jpg"):
+    def scanimage(self,img=r"ingredients_imgs/bread.jpg"):
         button_image = customtkinter.CTkImage(Image.open(img), size=(156, 156))
         image_button = customtkinter.CTkButton(master=self.radiobutton_frame,text="",image=button_image)
         image_button.grid(row=1, column=1, columnspan=4, pady=10, padx=20, sticky="")
@@ -197,9 +197,7 @@ class App(customtkinter.CTk):
             food_img.grid(row=j, column=0, padx=20, pady=20)
             ingredients=""
             condiments=""
-            bot=chatbot_copy.Model()
-            bot.run()
-            bot.chat(self)
+            
             for k in range(len(food[i][1])):
                 ingredients=ingredients+ f"{food[i][1][k]}, "
             for k in range(len(food[i][2])):
@@ -222,11 +220,11 @@ class App(customtkinter.CTk):
     def set_ingredients(self,ingredient_list):
         img_size=106
         dict_img={"bread":customtkinter.CTkImage(Image.open(r"ingredients_imgs\bread.jpg"), size=(img_size, img_size)),
-        "egg":customtkinter.CTkImage(Image.open(r"ingredients_imgs\egg.jpg"), size=(img_size, img_size)),
-        "bean":customtkinter.CTkImage(Image.open(r"ingredients_imgs\frijoles.jpg"), size=(img_size, img_size)),
+        "eggs":customtkinter.CTkImage(Image.open(r"ingredients_imgs\egg.jpg"), size=(img_size, img_size)),
+        "beans":customtkinter.CTkImage(Image.open(r"ingredients_imgs\frijoles.jpg"), size=(img_size, img_size)),
         "milk":customtkinter.CTkImage(Image.open(r"ingredients_imgs\milk.png"), size=(img_size, img_size)),
         "rice":customtkinter.CTkImage(Image.open(r"ingredients_imgs\rice.jpg"), size=(img_size, img_size)),
-        "tortilla":customtkinter.CTkImage(Image.open(r"ingredients_imgs\tortilla.jpg"), size=(img_size, img_size))                  
+        "tortillas":customtkinter.CTkImage(Image.open(r"ingredients_imgs\tortilla.jpg"), size=(img_size, img_size))                  
                   }
         
         for i in range(len(ingredient_list)):

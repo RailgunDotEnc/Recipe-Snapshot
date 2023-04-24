@@ -1,6 +1,7 @@
 import requests
 from PIL import Image
 import torch
+import Recipe_Bot.Recipe_AI
 
 from transformers import OwlViTProcessor, OwlViTForObjectDetection
 
@@ -8,7 +9,7 @@ from transformers import OwlViTProcessor, OwlViTForObjectDetection
 
 def scanimage(self,img=r"C:\Users\danie\Downloads\OIP.jpg"):
     mylist=[]
-    dic_results={0:"bread",1:"milk",2:"egg", 3:"rice", 4: "tortilla", 5: "bean"}
+    dic_results={0:"bread",1:"milk",2:"eggs", 3:"rice", 4: "tortillas", 5: "beans"}
     return_list=[]
     
     processor = OwlViTProcessor.from_pretrained("google/owlvit-base-patch32")
@@ -43,3 +44,7 @@ def scanimage(self,img=r"C:\Users\danie\Downloads\OIP.jpg"):
         self.text_event(dic_results[mylist[i]])
         return_list.append(dic_results[mylist[i]])
     self.set_ingredients(return_list)
+    bot=Recipe_Bot.Recipe_AI.Model()
+    bot.run(False)
+    answer=bot.chat(self,return_list)
+    self.set_recipes(answer)
