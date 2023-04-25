@@ -1,0 +1,292 @@
+{
+  "intents": [
+    {
+      "tag": "bread",
+      "patterns": ["bread", "found bread", "bread detected"],
+      "responses": [
+        {
+          "recipe_name": "Grilled Cheese Sandwich",
+          "ingredients": [ "Bread", "cheese", "butter" ],
+          "condiments": [],
+          "link": "https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/"
+        },
+        {
+          "recipe_name": "Peanut Butter and Jelly Sandwich",
+          "ingredients": [ "Bread", "peanut butter", "jelly" ],
+          "condiments": [],
+          "link": "https://www.food.com/recipe/traditional-peanut-butter-and-jelly-243965"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "milk",
+      "patterns": ["milk", "found milk", "milk detected"],
+      "responses": [
+        {
+          "recipe_name": "Creamy Milkshake",
+          "ingredients": [ "Milk", "ice cream", "sugar", "vanilla extract" ],
+          "condiments": [],
+          "link": "https://www.delish.com/cooking/recipe-ideas/a20760804/easy-milkshake-recipe/"
+        },
+        {
+          "recipe_name": "Hot Chocolate",
+          "ingredients": [ "Milk", "cocoa powder", "sugar", "marshmallows" ],
+          "condiments": [],
+          "link": "https://celebratingsweets.com/homemade-hot-chocolate/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "eggs",
+      "patterns": ["eggs", "found eggs", "eggs detected"],
+      "responses": [
+        {
+          "recipe_name": "Scrambled Eggs",
+          "ingredients": [ "Eggs", "butter", "salt", "pepper" ],
+          "condiments": [],
+          "link": "https://www.thespruceeats.com/perfect-scrambled-eggs-995518"
+        },
+        {
+          "recipe_name": "Fried Egg",
+          "ingredients": [ "Egg", "butter or oil", "salt", "pepper" ],
+          "condiments": [],
+          "link": "https://cookieandkate.com/favorite-fried-eggs-recipe/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "rice",
+      "patterns": ["rice", "found rice", "rice detected"],
+      "responses": [
+        {
+          "recipe_name": "Simple Fried Rice",
+          "ingredients": [ "Rice", "mixed vegetables", "egg", "soy sauce", "oil" ],
+          "condiments": [],
+          "link": "https://therecipecritic.com/easy-fried-rice/"
+        },
+        {
+          "recipe_name": "Rice Pilaf",
+          "ingredients": [ "Rice", "onion", "garlic", "vegetable broth", "butter", "salt", "pepper" ],
+          "condiments": [],
+          "link": "https://www.servedfromscratch.com/easy-homemade-rice-pilaf/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "tortillas",
+      "patterns": ["tortillas", "found tortillas", "tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Cheese Quesadilla",
+          "ingredients": [ "Tortillas", "cheese", "salsa" ],
+          "condiments": [],
+          "link": "https://myminichefs.com/cheese-quesadilla/"
+        },
+        {
+          "recipe_name": "Vegetable Wrap",
+          "ingredients": [ "Tortillas", "lettuce", "tomatoes", "cucumber", "cheese", "dressing" ],
+          "condiments": [],
+          "link": "https://tastesbetterfromscratch.com/hummus-edamame-veggie-wrap/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "fried_beans",
+      "patterns": ["fried beans", "found fried beans", "fried beans detected"],
+      "responses": [
+        {
+          "recipe_name": "Bean and Cheese Burrito",
+          "ingredients": [ "Tortillas", "fried beans", "cheese", "salsa" ],
+          "condiments": [],
+          "link": "https://www.isabeleats.com/bean-and-cheese-burritos/"
+        },
+        {
+          "recipe_name": "Beans on Toast",
+          "ingredients": [ "Bread", "fried beans", "cheese", "butter" ],
+          "condiments": [],
+          "link": "https://www.seriouseats.com/beans-on-toast-recipe"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "milk_eggs",
+      "patterns": ["milk and eggs", "found milk and eggs", "milk and eggs detected"],
+      "responses": [
+        {
+          "recipe_name": "French Toast",
+          "ingredients": [ "Bread", "milk", "eggs", "sugar", "cinnamon", "butter" ],
+          "condiments": [],
+          "link": "https://www.allrecipes.com/recipe/7016/french-toast-i/"
+        },
+        {
+          "recipe_name": "Pancakes",
+          "ingredients": [ "Milk", "eggs", "flour", "baking powder", "sugar", "butter" ],
+          "condiments": [],
+          "link": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "beans_tortillas",
+      "patterns": ["beans and tortillas", "found beans and tortillas", "beans and tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Bean and Cheese Burrito",
+          "ingredients": [ "Tortillas", "fried beans", "cheese", "salsa" ],
+          "condiments": [],
+          "link": "https://www.isabeleats.com/bean-and-cheese-burritos/"
+        },
+        {
+          "recipe_name": "Bean Tacos",
+          "ingredients": [ "Tortillas", "fried beans", "lettuce", "tomato", "cheese", "sour cream" ],
+          "condiments": [],
+          "link": "https://playswellwithbutter.com/crispy-black-bean-tacos/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "bread_milk_eggs",
+      "patterns": ["bread milk and eggs", "found bread milk and eggs", "bread milk and eggs detected"],
+      "responses": [
+        {
+          "recipe_name": "Bread Pudding",
+          "ingredients": [ "Bread", "milk", "eggs", "sugar", "vanilla", "cinnamon", "butter" ],
+          "condiments": [],
+          "link": "https://www.allrecipes.com/recipe/7177/bread-pudding-ii/"
+        },
+        {
+          "recipe_name": "French Toast",
+          "ingredients": [ "Bread", "milk", "eggs", "sugar", "cinnamon", "butter" ],
+          "condiments": [],
+          "link": "https://www.allrecipes.com/recipe/7016/french-toast-i/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "rice_tortillas",
+      "patterns": ["rice and tortillas", "found rice and tortillas", "rice and tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Burrito Bowl",
+          "ingredients": ["Rice", "tortillas", "beans", "vegetables", "cheese", "salsa"],
+          "condiments": [],
+          "link": "https://example.com/burrito-bowl"
+        },
+        {
+          "recipe_name": "Rice and Bean Wrap",
+          "ingredients": ["Tortillas", "rice", "fried beans", "lettuce", "tomato", "cheese"],
+          "condiments": [],
+          "link": "https://example.com/rice-bean-wrap"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "eggs_bread",
+      "patterns": ["eggs and bread", "found eggs and bread", "eggs and bread detected"],
+      "responses": [
+        {
+          "recipe_name": "Egg Sandwich",
+          "ingredients": [ "Bread", "fried or scrambled egg", "cheese", "lettuce", "tomato" ],
+          "condiments": [],
+          "link": "https://www.recipetineats.com/egg-sandwich/"
+        },
+        {
+          "recipe_name": "French Toast",
+          "ingredients": [ "Bread", "milk", "eggs", "sugar", "cinnamon", "butter" ],
+          "condiments": [],
+          "link": "https://www.allrecipes.com/recipe/7016/french-toast-i/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "eggs_rice",
+      "patterns": ["eggs and rice", "found eggs and rice", "eggs and rice detected"],
+      "responses": [
+        {
+          "recipe_name": "Fried Rice",
+          "ingredients": [ "Rice", "mixed vegetables", "egg", "soy sauce", "oil" ],
+          "condiments": [],
+          "link": "https://therecipecritic.com/easy-fried-rice/"
+        },
+        {
+          "recipe_name": "Egg Fried Rice",
+          "ingredients": [ "Rice", "egg", "vegetables", "soy sauce", "oil" ],
+          "condiments": [],
+          "link": "https://christieathome.com/blog/egg-fried-rice/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "milk_rice",
+      "patterns": ["milk and rice", "found milk and rice", "milk and rice detected"],
+      "responses": [
+        {
+          "recipe_name": "Rice Pudding",
+          "ingredients": [ "Rice", "milk", "sugar", "vanilla", "cinnamon", "nutmeg" ],
+          "condiments": [],
+          "link": "https://www.momontimeout.com/rice-pudding-recipe/"
+        },
+        {
+          "recipe_name": "Creamy Rice",
+          "ingredients": [ "Rice", "milk", "butter", "sugar", "cinnamon" ],
+          "condiments": [],
+          "link": "https://www.allrecipes.com/recipe/228914/old-fashioned-creamy-rice-pudding/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "milk_tortillas",
+      "patterns": ["milk and tortillas", "found milk and tortillas", "milk and tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Milk and Tortilla Soup",
+          "ingredients": [ "Milk", "tortillas", "vegetable broth", "onion", "garlic", "tomatoes", "chiles", "cheese" ],
+          "condiments": [],
+          "link": "https://www.costarica.com/recipes/sopa-de-leche-milk-and-tortilla-soup"
+        },
+        {
+          "recipe_name": "Creamy Tortilla Enchiladas",
+          "ingredients": [ "Tortillas", "milk", "cheese", "vegetables", "enchilada sauce" ],
+          "condiments": [],
+          "link": "https://www.thecountrycook.net/creamy-chicken-enchiladas/"
+        }
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "eggs_tortillas",
+      "patterns": ["eggs and tortillas", "found eggs and tortillas", "eggs and tortillas detected"],
+      "responses": [
+        {
+          "recipe_name": "Breakfast Burrito",
+          "ingredients": [ "Tortillas", "eggs", "cheese", "salsa", "vegetables" ],
+          "condiments": [],
+          "link": "https://www.onceuponachef.com/recipes/breakfast-burritos.html"
+        },
+        {
+          "recipe_name": "Huevos Rancheros",
+          "ingredients": [ "Tortillas", "eggs", "tomato sauce", "beans", "cheese" ],
+          "condiments": [],
+          "link": "https://cookieandkate.com/huevos-rancheros-recipe/"
+        }
+      ],
+      "context_set": ""
+    }
+  ]
+}
+
+
+
