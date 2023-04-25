@@ -48,3 +48,4 @@ def scanimage(self,img=r"C:\Users\danie\Downloads\OIP.jpg"):
     bot.run(False)
     answer=bot.chat(self,return_list)
     self.set_recipes(answer)
+    print("Done")
