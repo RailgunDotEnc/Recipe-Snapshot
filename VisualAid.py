@@ -8,6 +8,7 @@ from PIL import Image, ImageTk
 import sys
 sys.path.insert(0,'Recipe_Bot/')
 import Recipe_AI
+import EmailReader.Emails_copy
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("green")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -16,6 +17,8 @@ customtkinter.set_default_color_theme("green")  # Themes: "blue" (standard), "gr
 class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
+        self.email=EmailReader.Emails_copy.EmmaMail()
+        self.d_img=""
         self.count=0
         self.clock=0
         # configure window
@@ -31,14 +34,14 @@ class App(customtkinter.CTk):
         self.sidebar_frame = customtkinter.CTkFrame(self, width=140, corner_radius=0)
         self.sidebar_frame.grid(row=0, column=0, rowspan=4, sticky="nsew")
         self.sidebar_frame.grid_rowconfigure(4, weight=1)
-        self.logo_label = customtkinter.CTkLabel(self.sidebar_frame, text="Recipe SnapShot", font=customtkinter.CTkFont(size=20, weight="bold"))
+        self.logo_label = customtkinter.CTkLabel(self.sidebar_frame, text="Reci-Pic", font=customtkinter.CTkFont(size=20, weight="bold"))
         self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
-        self.sidebar_button_1 = customtkinter.CTkButton(self.sidebar_frame,text="Reset", command=self.text_event)
+        self.sidebar_button_1 = customtkinter.CTkButton(self.sidebar_frame,text="Reset", command=self.resetall)
         self.sidebar_button_1.grid(row=1, column=0, padx=20, pady=10)
-        self.sidebar_button_2 = customtkinter.CTkButton(self.sidebar_frame,text="Test all", command=self.scanimage)
+        self.sidebar_button_2 = customtkinter.CTkButton(self.sidebar_frame,text="Get image", command=self.get_image)
         self.sidebar_button_2.grid(row=2, column=0, padx=20, pady=10)
-        #self.sidebar_button_3 = customtkinter.CTkButton(self.sidebar_frame,text="Test ", command=self.set_recipes)
-        #self.sidebar_button_3.grid(row=3, column=0, padx=20, pady=10)
+        self.sidebar_button_3 = customtkinter.CTkButton(self.sidebar_frame,text="Test all", command=self.scanimage)
+        self.sidebar_button_3.grid(row=3, column=0, padx=20, pady=10)
         self.appearance_mode_label = customtkinter.CTkLabel(self.sidebar_frame, text="Appearance Mode:", anchor="w")
         self.appearance_mode_label.grid(row=5, column=0, padx=20, pady=(10, 0))
         self.appearance_mode_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["Light", "Dark"],
@@ -174,10 +177,14 @@ class App(customtkinter.CTk):
         #self.seg_button_1.set("Value 2")
 
 
-    def scanimage(self,img=r"ingredients_imgs/bread.jpg"):
+    def scanimage(self,img=r"ingredients_imgs/test.jpg"):
+        img=self.get_image()
+        if img==-1 or img==None:
+            self.text_event("Abort")
+            return
         button_image = customtkinter.CTkImage(Image.open(img), size=(156, 156))
-        image_button = customtkinter.CTkButton(master=self.radiobutton_frame,text="",image=button_image)
-        image_button.grid(row=1, column=1, columnspan=4, pady=10, padx=20, sticky="")
+        self.ex = customtkinter.CTkButton(master=self.radiobutton_frame,text="",image=button_image)
+        self.ex.grid(row=1, column=1, columnspan=4, pady=10, padx=20, sticky="")
         t1 = threading.Thread(target=model.scanimage, args=(self,img))
         self.text_event("Scanning image")
         t1.start()
@@ -188,8 +195,6 @@ class App(customtkinter.CTk):
         self.text_event(f"Found {len(food)} Recipes")
         img_size=106
         j=0
-        
-        
         
         for i in range(len(food)):
             img=customtkinter.CTkImage(Image.open(f"recipies_imgs\\{food[i][0]}.jpg"), size=(img_size, img_size))
@@ -214,9 +219,16 @@ class App(customtkinter.CTk):
             j=j+1
             label3 = customtkinter.CTkLabel(master=self.scrollable_frame, text=f"Website: {food[i][3]}")
             label3.grid(row=j, column=0, padx=20)
-            j=j+1
-            
-
+            j=j+1       
+    def get_image(self):
+        try:
+            self.d_img=self.email.Read()
+            self.text_event("Image gained")
+            return self.d_img
+        except:
+            self.text_event("Failed to get image")
+            return -1
+        
     def set_ingredients(self,ingredient_list):
         img_size=106
         dict_img={"bread":customtkinter.CTkImage(Image.open(r"ingredients_imgs\bread.jpg"), size=(img_size, img_size)),
@@ -226,33 +238,62 @@ class App(customtkinter.CTk):
         "rice":customtkinter.CTkImage(Image.open(r"ingredients_imgs\rice.jpg"), size=(img_size, img_size)),
         "tortillas":customtkinter.CTkImage(Image.open(r"ingredients_imgs\tortilla.jpg"), size=(img_size, img_size))                  
                   }
-        
+        self.mysize=len(ingredient_list)
         for i in range(len(ingredient_list)):
             if i==0:
                 self.label_tab_1.configure(text = ingredient_list[i])
-                food_img1 = customtkinter.CTkButton(master=self.label_tab_1,text="",image=dict_img[ingredient_list[i]])
-                food_img1.grid(row=1, column=0, padx=20, pady=20)
+                self.food_img1 = customtkinter.CTkButton(master=self.label_tab_1,text="",image=dict_img[ingredient_list[i]])
+                self.food_img1.grid(row=1, column=0, padx=20, pady=20)
             if i==1:
                 self.label_tab_2.configure(text = ingredient_list[i])
-                food_img2 = customtkinter.CTkButton(master=self.label_tab_2,text="",image=dict_img[ingredient_list[i]])
-                food_img2.grid(row=1, column=0, padx=20, pady=20)
+                self.food_img2 = customtkinter.CTkButton(master=self.label_tab_2,text="",image=dict_img[ingredient_list[i]])
+                self.food_img2.grid(row=1, column=0, padx=20, pady=20)
             if i==2:
                 self.label_tab_3.configure(text = ingredient_list[i])
-                food_img3 = customtkinter.CTkButton(master=self.label_tab_3,text="",image=dict_img[ingredient_list[i]])
-                food_img3.grid(row=1, column=0, padx=20, pady=20)
+                self.food_img3 = customtkinter.CTkButton(master=self.label_tab_3,text="",image=dict_img[ingredient_list[i]])
+                self.food_img3.grid(row=1, column=0, padx=20, pady=20)
             if i==3:
                 self.label_tab_4.configure(text = ingredient_list[i])
-                label_tab_4 = customtkinter.CTkButton(master=self.label_tab_4,text="",image=dict_img[ingredient_list[i]])
-                label_tab_4.grid(row=1, column=0, padx=20, pady=20)
+                self.label_tab_4 = customtkinter.CTkButton(master=self.label_tab_4,text="",image=dict_img[ingredient_list[i]])
+                self.label_tab_4.grid(row=1, column=0, padx=20, pady=20)
             if i==4:
                 self.label_tab_5.configure(text = ingredient_list[i])
-                label_tab_5 = customtkinter.CTkButton(master=self.label_tab_5,text="",image=dict_img[ingredient_list[i]])
-                label_tab_5.grid(row=1, column=0, padx=20, pady=20)
+                self.label_tab_5 = customtkinter.CTkButton(master=self.label_tab_5,text="",image=dict_img[ingredient_list[i]])
+                self.label_tab_5.grid(row=1, column=0, padx=20, pady=20)
             if i==5:
                 self.label_tab_6.configure(text = ingredient_list[i])
-                label_tab_6 = customtkinter.CTkButton(master=self.label_tab_6,text="",image=dict_img[ingredient_list[i]])
-                label_tab_6.grid(row=1, column=0, padx=20, pady=20)
+                self.label_tab_6 = customtkinter.CTkButton(master=self.label_tab_6,text="",image=dict_img[ingredient_list[i]])
+                self.label_tab_6.grid(row=1, column=0, padx=20, pady=20)
 
+    def resetall(self):
+        self.text_event("Reseting...")
+        #part1
+        self.label_tab_1.configure(text = "No ingredient 1")
+        if self.mysize>=1:
+            self.food_img1.destroy()
+        self.label_tab_2.configure(text = "No ingredient 1")
+        if self.mysize>=2:
+            self.food_img2.destroy()
+        self.label_tab_3.configure(text = "No ingredient 1")
+        if self.mysize>=3:
+            self.food_img3.destroy()
+        self.label_tab_4.configure(text = "No ingredient 1")
+        if self.mysize>=4:
+            self.label_tab_4.destroy()
+        self.label_tab_5.configure(text = "No ingredient 1")
+        if self.mysize>=5:
+            self.label_tab_5.destroy()
+        self.label_tab_6.configure(text = "No ingredient 1")
+        if self.mysize>=6:
+            self.label_tab_6.destroy()
+        #part2
+        self.scrollable_frame = customtkinter.CTkScrollableFrame(self, label_text="Recipes")
+        self.scrollable_frame.grid(row=1, column=2, padx=(20, 0), pady=(20, 0), sticky="nsew")
+        self.scrollable_frame.grid_columnconfigure(0, weight=1)
+        self.scrollable_frame_switches = []
+        #part3
+        self.ex.destroy()
+        self.text_event("Done!")
 
     def change_appearance_mode_event(self, new_appearance_mode: str):
         customtkinter.set_appearance_mode(new_appearance_mode)

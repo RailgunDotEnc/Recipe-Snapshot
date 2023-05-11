@@ -31,7 +31,7 @@ def scanimage(self,img=r"C:\Users\danie\Downloads\OIP.jpg"):
     text = texts[i]
     boxes, scores, labels = results[i]["boxes"], results[i]["scores"], results[i]["labels"]
     
-    score_threshold = 0.1
+    score_threshold = 0.2
     for box, score, label in zip(boxes, scores, labels):
         box = [round(i, 2) for i in box.tolist()]
         if score >= score_threshold:
